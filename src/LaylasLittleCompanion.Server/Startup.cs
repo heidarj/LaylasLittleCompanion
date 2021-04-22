@@ -47,10 +47,10 @@ namespace LaylasLittleCompanion.Server
 			services.AddTrelloService(Configuration);
 
 			services.AddScoped<TwitchApiService>();
-			services.AddScoped<TwitchClientService>();
+			services.AddSingleton<TwitchClientService>();
 
-			var serviceProvider = services.BuildServiceProvider();
-			_ = serviceProvider.GetService<TwitchClientService>();
+			//var serviceProvider = services.BuildServiceProvider();
+			//_ = serviceProvider.GetService<TwitchClientService>();
 
 		}
 

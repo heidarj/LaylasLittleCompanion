@@ -32,6 +32,8 @@ namespace LaylasLittleCompanion.Server.Services
 		private List<User> liveCodersTeamMembers;
 		private List<string> welcomedMemberIds = new List<string>();
 
+		public event EventHandler TestEvent;
+
 
 		public TwitchClientService(
 			IOptions<TwitchConfiguration> settings,
@@ -164,6 +166,9 @@ namespace LaylasLittleCompanion.Server.Services
 					break;
 				case "laylatest":
 					await Test(e.Command);
+					break;
+				case "testevent":
+					TestEvent?.Invoke(this, EventArgs.Empty);
 					break;
 				default:
 					break;
